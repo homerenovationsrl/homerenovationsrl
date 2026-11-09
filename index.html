@@ -1,33 +1,622 @@
-<!-- Sezione Download Cataloghi e Approfondimenti -->
-<section id="cataloghi" style="margin: 4rem 0; padding: 2rem; background: var(--light-bg); border-radius: 8px; border-left: 5px solid var(--blue-primary);">
-  <h2 class="section-title">Cataloghi & Approfondimenti Tecnici</h2>
-  <p style="margin-top: 0.5rem; color: #555; margin-bottom: 1.5rem;">
-    Scarica la nostra documentazione ufficiale per scoprire i dettagli costruttivi delle nostre case prefabbricate e le soluzioni avanzate di bioedilizia.
-  </p>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
-    
-    <!-- Card PDF 1: Case e Sistema Elettronia -->
-    <div style="background: #fff; padding: 1.5rem; border-radius: 6px; border: 1px solid #cbd5e1; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-      <h3 style="color: var(--blue-primary); margin-bottom: 0.5rem; font-size: 1.2rem;">📁 Modelli e Case Prefabbricate</h3>
-      <p style="font-size: 0.9rem; color: #666; margin-bottom: 1rem;">
-        Scopri il sistema energetico Elettronia, le stratigrafie a telaio/X-LAM e i modelli abitativi (Classic, Cube, Modern, Majestic, Infinity, Luxury).
-      </p>
-      <a href="case-home-renovation.pdf" target="_blank" style="display: inline-block; background: var(--blue-primary); color: #fff; padding: 0.6rem 1.2rem; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 0.9rem;">
-        Scarica PDF (Case & Progetti)
-      </a>
-    </div>
+  <title>Home Renovation Srl | Costruzioni, Immobiliare e Progettazione</title>
+  <meta name="description" content="Servizi professionali di ristrutturazione, costruzioni, immobiliare e progettazione a Cerro Maggiore (VA). Richiedi un preventivo online.">
 
-    <!-- Card PDF 2: Tetti Verdi -->
-    <div style="background: #fff; padding: 1.5rem; border-radius: 6px; border: 1px solid #cbd5e1; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-      <h3 style="color: var(--blue-primary); margin-bottom: 0.5rem; font-size: 1.2rem;">🌱 Guida ai Tetti Verdi</h3>
-      <p style="font-size: 0.9rem; color: #666; margin-bottom: 1rem;">
-        Approfondimento tecnico sui tetti giardino (estensivi e intensivi), vantaggi energetici, stratigrafie e detrazioni fiscali (Bonus Verde).
-      </p>
-      <a href="tetti-verdi.pdf" target="_blank" style="display: inline-block; background: var(--blue-primary); color: #fff; padding: 0.6rem 1.2rem; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 0.9rem;">
-        Scarica PDF (Guida Tetti Verdi)
-      </a>
-    </div>
+  <style>
+    :root {
+      --blue-primary: #0055d4;
+      --yellow-accent: #f3b200;
+      --light-bg: #f8f9fa;
+      --text-dark: #222222;
+    }
 
-  </div>
-</section>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 20px;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text-dark);
+      background-color: #ffffff;
+    }
+
+    /* Header & Logo */
+    header {
+      background-color: #ffffff;
+      border-top: 6px solid var(--yellow-accent);
+      border-bottom: 4px solid var(--blue-primary);
+      padding: 0.8rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      position: relative;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .logo-link {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .brand-logo-img {
+      height: 65px;
+      width: auto;
+      max-width: 300px;
+      object-fit: contain;
+      display: block;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--blue-primary);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--yellow-accent);
+    }
+
+    .btn-nav-preventivo {
+      background-color: var(--yellow-accent);
+      color: var(--text-dark) !important;
+      padding: 0.6rem 1.2rem;
+      border-radius: 4px;
+      font-weight: bold;
+      border-bottom: 3px solid var(--blue-primary);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(0, 85, 212, 0.85), rgba(0, 40, 120, 0.85)), url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80') center/cover;
+      color: white;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto 2rem auto;
+      color: #e2e8f0;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1100px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      color: var(--blue-primary);
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background-color: var(--yellow-accent);
+      margin-top: 5px;
+    }
+
+    /* Servizi Grid con Foto */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2.5rem 0;
+    }
+
+    .service-card {
+      background: var(--light-bg);
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      overflow: hidden;
+      border-top: 5px solid var(--blue-primary);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .service-content {
+      padding: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .service-card h3 {
+      color: var(--blue-primary);
+      margin-bottom: 0.8rem;
+      font-size: 1.4rem;
+    }
+
+    .service-card ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 1rem;
+    }
+
+    .service-card ul li {
+      margin-bottom: 0.4rem;
+      position: relative;
+      padding-left: 1.2rem;
+    }
+
+    .service-card ul li::before {
+      content: "•";
+      color: var(--yellow-accent);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    /* Come Lavoriamo */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+
+    .step-box {
+      background: #fff;
+      border: 2px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .step-number {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--yellow-accent);
+      background: var(--blue-primary);
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      margin: 0 auto 1rem auto;
+    }
+
+    /* Galleria Foto Lavori & PDF */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .gallery-item {
+      border: 2px solid #e2e8f0;
+      border-radius: 8px;
+      overflow: hidden;
+      background-color: var(--light-bg);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-caption {
+      padding: 1rem;
+      font-weight: 600;
+      color: var(--blue-primary);
+      text-align: center;
+    }
+
+    .pdf-card-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      height: 100%;
+    }
+
+    /* Area Preventivi Evidenziata */
+    .quote-container-box {
+      background: #ffffff;
+      border: 3px solid var(--blue-primary);
+      border-top: 8px solid var(--yellow-accent);
+      border-radius: 12px;
+      padding: 2.5rem;
+      box-shadow: 0 10px 25px rgba(0, 85, 212, 0.15);
+      margin: 4rem 0;
+    }
+
+    .quote-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .quote-header h2 {
+      font-size: 2.2rem;
+      color: var(--blue-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .quote-header p {
+      color: #555;
+      font-size: 1.1rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group.full-width {
+      grid-column: 1 / -1;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      color: var(--blue-primary);
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.9rem;
+      border: 2px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 1rem;
+      background-color: #f8fafc;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--blue-primary);
+      background-color: #ffffff;
+      box-shadow: 0 0 0 4px rgba(0, 85, 212, 0.15);
+    }
+
+    .btn-submit {
+      background-color: var(--blue-primary);
+      color: #ffffff;
+      border: none;
+      padding: 1.2rem 2rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+      border-bottom: 5px solid var(--yellow-accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .btn-submit:hover {
+      background-color: #0040a8;
+      transform: translateY(-2px);
+    }
+
+    /* Info Contatti & Sede */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2.5rem 0;
+    }
+
+    .info-card {
+      background: var(--light-bg);
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1.5rem;
+      border-left: 5px solid var(--blue-primary);
+    }
+
+    .info-card h3 {
+      color: var(--blue-primary);
+      margin-bottom: 0.8rem;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--blue-primary);
+      color: #ffffff;
+      text-align: center;
+      padding: 2rem 1rem;
+      border-top: 4px solid var(--yellow-accent);
+    }
+
+    footer p {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header con Logo Ufficiale -->
+  <header>
+    <a href="#" class="logo-link">
+      <img src="https://i.ibb.co/CsmpQ5Yf/home.png" alt="Home Renovation Srl" class="brand-logo-img">
+    </a>
+    <nav>
+      <a href="#servizi">Servizi</a>
+      <a href="#lavori">I nostri lavori</a>
+      <a href="#contatti">Contatti</a>
+      <a href="#preventivo" class="btn-nav-preventivo">Richiedi preventivo</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Costruiamo e rinnoviamo la tua casa</h1>
+    <p>Nuove costruzioni, ristrutturazioni, manutenzioni e pronto intervento. Sviluppo immobiliare, vendita e progettazione tecnica: un unico partner dall'idea alla consegna.</p>
+  </section>
+
+  <main class="container">
+
+    <!-- Sezione Servizi -->
+    <section id="servizi">
+      <h2 class="section-title">I nostri servizi</h2>
+      <p style="margin-top: 0.5rem; color: #555;">Soluzioni complete e professionali per ogni esigenza edilizia e immobiliare.</p>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=600&q=80" alt="Costruzioni e Ristrutturazioni" class="service-img">
+          <div class="service-content">
+            <h3>Costruzioni & Ristrutturazioni</h3>
+            <p>Dal cantiere alla consegna chiavi in mano.</p>
+            <ul>
+              <li>Nuove costruzioni</li>
+              <li>Ristrutturazioni d'interni</li>
+              <li>Manutenzioni</li>
+              <li>Pronto intervento</li>
+              <li>Porte e serramenti</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="service-card" style="border-top-color: var(--yellow-accent);">
+          <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=600&q=80" alt="Immobiliare" class="service-img">
+          <div class="service-content">
+            <h3>Immobiliare</h3>
+            <p>Valorizziamo gli immobili e li portiamo sul mercato.</p>
+            <ul>
+              <li>Sviluppo immobiliare</li>
+              <li>Vendita e valorizzazione</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=80" alt="Progettazione" class="service-img">
+          <div class="service-content">
+            <h3>Progettazione</h3>
+            <p>Progetti, misure e numeri chiari prima di iniziare.</p>
+            <ul>
+              <li>Relazioni energetiche</li>
+              <li>Progetti e permessi</li>
+              <li>Rilievi dettagliati</li>
+              <li>Computi metrici</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Come Lavoriamo -->
+    <section style="margin: 4rem 0;">
+      <h2 class="section-title">Dal primo contatto alla consegna</h2>
+      <div class="steps-grid">
+        <div class="step-box">
+          <div class="step-number">1</div>
+          <h3>Richiesta</h3>
+          <p style="font-size: 0.9rem; color: #666;">Compili il modulo online descrivendo il lavoro.</p>
+        </div>
+        <div class="step-box">
+          <div class="step-number">2</div>
+          <h3>Sopralluogo</h3>
+          <p style="font-size: 0.9rem; color: #666;">Valutiamo lo stato dei luoghi e prendiamo le misure.</p>
+        </div>
+        <div class="step-box">
+          <div class="step-number">3</div>
+          <h3>Preventivo</h3>
+          <p style="font-size: 0.9rem; color: #666;">Ricevi un computo dettagliato, senza sorprese.</p>
+        </div>
+        <div class="step-box">
+          <div class="step-number">4</div>
+          <h3>Realizzazione</h3>
+          <p style="font-size: 0.9rem; color: #666;">Eseguiamo i lavori e ti consegniamo il risultato.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Galleria Foto Lavori e Documenti PDF Cliccabili -->
+    <section id="lavori">
+      <h2 class="section-title">I nostri lavori</h2>
+      <p style="margin-top: 0.5rem; color: #555;">Alcuni dei nostri cantieri e i nostri cataloghi di approfondimento (clicca sulle schede per scaricare i PDF).</p>
+      
+      <div class="gallery-grid">
+        
+        <!-- PDF 1: Casa in Bio Edilizia -->
+        <div class="gallery-item" style="border: 3px solid var(--blue-primary); background: #ffffff;">
+          <a href="CASE%20HOME%20RENOVATION.pdf" target="_blank" class="pdf-card-link">
+            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80" alt="Casa in Bio Edilizia">
+            <div class="gallery-caption" style="padding: 1.2rem; text-align: left;">
+              <span style="font-size: 0.75rem; text-transform: uppercase; background: var(--blue-primary); color: #fff; padding: 3px 8px; border-radius: 4px; font-weight: bold;">DOCUMENTO PDF</span>
+              <h3 style="color: var(--blue-primary); margin-top: 0.4rem; font-size: 1.3rem;">Casa in Bio Edilizia</h3>
+              <p style="font-size: 0.85rem; color: #555; font-weight: normal; margin-top: 0.4rem;">
+                Abitazioni prefabbricate autosufficienti a struttura in legno (Telaio/X-LAM). Clicca per aprire il catalogo completo dei modelli.[cite: 3, 8, 10]
+              </p>
+              <div style="margin-top: 0.8rem; color: var(--blue-primary); font-weight: bold; font-size: 0.9rem;">
+                📄 Clicca qui per aprire il PDF &rarr;
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- PDF 2: Tetti Verdi -->
+        <div class="gallery-item" style="border: 3px solid var(--yellow-accent); background: #ffffff;">
+          <a href="Tetti%20Verdi.pdf" target="_blank" class="pdf-card-link">
+            <img src="https://images.unsplash.com/photo-1592595896551-12b371d546d5?auto=format&fit=crop&w=600&q=80" alt="Tetti Verdi">
+            <div class="gallery-caption" style="padding: 1.2rem; text-align: left;">
+              <span style="font-size: 0.75rem; text-transform: uppercase; background: #2e7d32; color: #fff; padding: 3px 8px; border-radius: 4px; font-weight: bold;">DOCUMENTO PDF</span>
+              <h3 style="color: var(--blue-primary); margin-top: 0.4rem; font-size: 1.3rem;">Tetti Verdi</h3>
+              <p style="font-size: 0.85rem; color: #555; font-weight: normal; margin-top: 0.4rem;">
+                Soluzioni ad alta efficienza energetica, isolamento termo-acustico e giardini pensili. Clicca per leggere la guida tecnica.[cite: 30, 32, 39, 41]
+              </p>
+              <div style="margin-top: 0.8rem; color: #2e7d32; font-weight: bold; font-size: 0.9rem;">
+                🌱 Clicca qui per aprire il PDF &rarr;
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Altri Lavori -->
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=600&q=80" alt="Ristrutturazione Cucina">
+          <div class="gallery-caption">Ristrutturazione Cucina & Living</div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=600&q=80" alt="Rinnovamento Bagno">
+          <div class="gallery-caption">Rinnovamento Bagno e Finiture</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Area Preventivi -->
+    <section id="preventivo">
+      <div class="quote-container-box">
+        <div class="quote-header">
+          <h2>Richiedi un Preventivo Gratuito</h2>
+          <p>Descrivici il lavoro che hai in mente. Le richieste verranno inviate a <strong>segreteria@homerenovationsrl.it</strong>.</p>
+        </div>
+
+        <form action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="4c3854ae-cf85-4753-985e-32054e21f7bd">
+          <input type="hidden" name="subject" value="Nuova richiesta preventivo dal sito Home Renovation Srl">
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="nome">Nome e Cognome *</label>
+              <input type="text" id="nome" name="Nome_Cliente" required placeholder="Es. Mario Rossi">
+            </div>
+
+            <div class="form-group">
+              <label for="email">La tua E-mail di Contatto *</label>
+              <input type="email" id="email" name="Email_Cliente" required placeholder="esempio@email.com">
+            </div>
+
+            <div class="form-group">
+              <label for="telefono">Numero di Telefono *</label>
+              <input type="tel" id="telefono" name="Telefono_Cliente" required placeholder="Es. 333 1234567">
+            </div>
+
+            <div class="form-group">
+              <label for="tipo_lavoro">Tipo di Intervento *</label>
+              <select id="tipo_lavoro" name="Tipo_Intervento">
+                <option value="Costruzioni e Ristrutturazioni">Costruzioni e Ristrutturazioni</option>
+                <option value="Immobiliare">Immobiliare / Vendita</option>
+                <option value="Progettazione e Pratiche">Progettazione e Relazioni Energetiche</option>
+                <option value="Altro">Altro lavoro</option>
+              </select>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="messaggio">Descrivi la tua richiesta / Progetto *</label>
+              <textarea id="messaggio" name="Dettagli_Richiesta" rows="5" required placeholder="Descrivi il lavoro, la metratura, la zona o le tue esigenze..."></textarea>
+            </div>
+
+            <div class="form-group full-width">
+              <button type="submit" class="btn-submit">Invia Richiesta di Preventivo</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Dove Siamo e Contatti -->
+    <section id="contatti" style="margin-bottom: 3rem;">
+      <h2 class="section-title">Dove siamo & Contatti</h2>
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>Sede Operativa</h3>
+          <p><strong>Home Renovation Srl</strong><br>Via Filippo Turati 111<br>20023 Cerro Maggiore (VA) – Italia</p>
+          <p style="margin-top: 1rem;"><strong>Telefono:</strong> <a href="tel:3332696560" style="color: var(--blue-primary); font-weight: bold; text-decoration: none;">333 2696560</a></p>
+        </div>
+        <div class="info-card" style="border-left-color: var(--yellow-accent);">
+          <h3>Reparti e Email Aziendali</h3>
+          <ul style="list-style: none; padding:0; font-size: 0.95rem;">
+            <li style="margin-bottom: 6px;"><strong>Segreteria:</strong> <a href="mailto:segreteria@homerenovationsrl.it" style="color:var(--blue-primary);text-decoration:none;">segreteria@homerenovationsrl.it</a></li>
+            <li style="margin-bottom: 6px;"><strong>Tecnico:</strong> <a href="mailto:tecnico@homerenovationsrl.it" style="color:var(--blue-primary);text-decoration:none;">tecnico@homerenovationsrl.it</a></li>
+            <li style="margin-bottom: 6px;"><strong>Amministrazione:</strong> <a href="mailto:amministrazione@homerenovationsrl.it" style="color:var(--blue-primary);text-decoration:none;">amministrazione@homerenovationsrl.it</a></li>
+            <li style="margin-bottom: 6px;"><strong>Ufficio Legale:</strong> <a href="mailto:ufficio.legale@homerenovationsrl.it" style="color:var(--blue-primary);text-decoration:none;">ufficio.legale@homerenovationsrl.it</a></li>
+            <li style="margin-bottom: 6px;"><strong>Contratti:</strong> <a href="mailto:contratti@homerenovationsrl.it" style="color:var(--blue-primary);text-decoration:none;">contratti@homerenovationsrl.it</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Home Renovation Srl – Via Filippo Turati 111, 20023 Cerro Maggiore (VA)</p>
+    <p>Telefono: 333 2696560 | Preventivi: segreteria@homerenovationsrl.it</p>
+  </footer>
+
+</body>
+</html>
