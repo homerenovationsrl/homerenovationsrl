@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Renovation | Costruzioni & Restauri</title>
+    <style>
+        :root {
+            --brand-blue: #0040ff;
+            --brand-yellow: #ffcc00;
+            --dark-blue: #002288;
+            --light-bg: #f8fafc;
+            --text-color: #1e293b;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* HEADER & MENU */
+        header {
+            background-color: var(--white);
+            border-bottom: 4px solid var(--brand-blue);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 2rem;
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-svg {
+            height: 42px;
+            width: auto;
+            display: block;
+        }
+
+        .logo-text-styled {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--brand-blue);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--brand-blue);
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--brand-yellow);
+        }
+
+        /* HERO BANNER SCENOGRAFICO */
+        .hero {
+            background: linear-gradient(rgba(0, 34, 136, 0.75), rgba(0, 34, 136, 0.75)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            color: var(--white);
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-bottom: 5px solid var(--brand-yellow);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--brand-yellow);
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 750px;
+            margin: 0 auto 2rem auto;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+        }
+
+        .btn-hero {
+            display: inline-block;
+            background-color: var(--brand-yellow);
+            color: var(--dark-blue);
+            padding: 1rem 2.2rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-hero:hover {
+            background-color: #e6b800;
+            transform: translateY(-2px);
+        }
+
+        /* SEZIONI GENERALI */
+        section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--brand-blue);
+            margin-bottom: 2.5rem;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--brand-yellow);
+            margin: 0.5rem auto 0;
+        }
+
+        /* SEZIONE COME FUNZIONA */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .process-card {
+            background-color: var(--white);
+            border: 1px solid #e2e8f0;
+            border-top: 5px solid var(--brand-blue);
+            border-radius: 8px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .process-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .process-number {
+            background-color: var(--brand-yellow);
+            color: var(--dark-blue);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin: 0 auto 1.2rem auto;
+        }
+
+        .process-card h3 {
+            color: var(--brand-blue);
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .process-card p {
+            color: #475569;
+            font-size: 0.95rem;
+        }
+
+        /* I NOSTRI SERVIZI */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border: 1px solid #e2e8f0;
+            border-top: 5px solid var(--brand-blue);
+            border-left: 5px solid var(--brand-yellow);
+            padding: 2rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border-radius: 0 0 8px 8px;
+        }
+
+        .service-card h3 {
+            color: var(--brand-blue);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            font-size: 1.3rem;
+        }
+
+        .service-desc {
+            font-style: italic;
+            color: #64748b;
+            margin-bottom: 1.2rem;
+            font-size: 0.95rem;
+        }
+
+        .service-card ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .service-card ul li {
+            padding: 0.4rem 0;
+            border-bottom: 1px dashed #f1f5f9;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+
+        .service-card ul li::before {
+            content: "•";
+            color: var(--brand-yellow);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* BROCHURE (PDF) */
+        .brochure-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .brochure-card {
+            background: var(--white);
+            border: 2px solid var(--brand-blue);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brochure-header {
+            background-color: var(--brand-blue);
+            color: var(--white);
+            padding: 1rem;
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-bottom: 3px solid var(--brand-yellow);
+        }
+
+        .brochure-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .brochure-body p {
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .btn-download {
+            display: block;
+            background-color: var(--brand-yellow);
+            color: var(--dark-blue);
+            text-align: center;
+            padding: 0.8rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: background 0.3s;
+        }
+
+        .btn-download:hover {
+            background-color: #e6b800;
+        }
+
+        /* GALLERIA I NOSTRI LAVORI CON ZOOM */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border: 3px solid var(--brand-blue);
+            border-radius: 6px;
+            overflow: hidden;
+            height: 240px;
+            background-color: var(--brand-blue);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.15);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 64, 255, 0.85);
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .gallery-overlay h3 {
+            color: var(--brand-yellow);
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* SEZIONE PREVENTIVO */
+        .preventivo-box {
+            background-color: var(--white);
+            border: 2px solid var(--brand-blue);
+            border-radius: 8px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .preventivo-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            color: var(--brand-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .btn-submit {
+            grid-column: span 2;
+            background-color: var(--brand-blue);
+            color: var(--white);
+            border: none;
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--dark-blue);
+        }
+
+        /* SEZIONE CONTATTI & DOVE SIAMO */
+        .contatti-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .contatti-card {
+            background-color: var(--white);
+            border: 1px solid #e2e8f0;
+            border-top: 5px solid var(--brand-blue);
+            border-left: 5px solid var(--brand-yellow);
+            padding: 2rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border-radius: 0 0 8px 8px;
+        }
+
+        .contatti-card h3 {
+            color: var(--brand-blue);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .contatti-card p {
+            margin-bottom: 0.8rem;
+        }
+
+        .contatti-card ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .contatti-card ul li {
+            padding: 0.4rem 0;
+            border-bottom: 1px dashed #f1f5f9;
+        }
+
+        .contatti-card ul li strong {
+            color: var(--brand-blue);
+        }
+
+        .contatti-card a {
+            color: var(--brand-blue);
+            text-decoration: none;
+        }
+
+        .contatti-card a:hover {
+            text-decoration: underline;
+            color: var(--brand-yellow);
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            border-top: 5px solid var(--brand-yellow);
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER CON IL LOGO VETTORIALE ESATTO IN CODICE -->
+    <header>
+        <nav>
+            <a href="#" class="logo-box">
+                <!-- SVG originale vettoriale riprodotto esattamente dal logo -->
+                <svg class="logo-svg" viewBox="0 0 160 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Riga superiore angolata (Giallo - Blu - Giallo) -->
+                    <path d="M 10 55 L 75 55 L 75 5" stroke="#ffcc00" stroke-width="5"/>
+                    <path d="M 10 47 L 67 47 L 67 5" stroke="#0040ff" stroke-width="5"/>
+                    <path d="M 10 39 L 59 39 L 59 5" stroke="#ffcc00" stroke-width="5"/>
+                    
+                    <!-- Riga inferiore angolata (Giallo - Blu - Giallo) -->
+                    <path d="M 67 95 L 67 63 L 150 63" stroke="#ffcc00" stroke-width="5"/>
+                    <path d="M 75 95 L 75 71 L 150 71" stroke="#0040ff" stroke-width="5"/>
+                    <path d="M 83 95 L 83 79 L 150 79" stroke="#ffcc00" stroke-width="5"/>
+                </svg>
+                <div class="logo-text-styled">HOME RENOVATION</div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#come-funziona">Come Funziona</a></li>
+                <li><a href="#servizi">I Nostri Servizi</a></li>
+                <li><a href="#brochure">Brochure</a></li>
+                <li><a href="#lavori">I Nostri Lavori</a></li>
+                <li><a href="#preventivo">Preventivo</a></li>
+                <li><a href="#contatti">Contatti</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO BANNER CON SFONDO SCENOGRAFICO -->
+    <div class="hero">
+        <h1>Costruzioni & Soluzioni Edili</h1>
+        <p>Qualità, professionalità e soluzioni su misura per la tua casa.</p>
+        <a href="#preventivo" class="btn-hero">Richiedi un Preventivo</a>
+    </div>
+
+    <!-- SEZIONE COME FUNZIONA -->
+    <section id="come-funziona">
+        <h2 class="section-title">Dal Primo Contatto alla Consegna</h2>
+        <div class="process-grid">
+            <div class="process-card">
+                <div class="process-number">1</div>
+                <h3>Richiesta</h3>
+                <p>Compili il modulo online descrivendo il lavoro.</p>
+            </div>
+            <div class="process-card">
+                <div class="process-number">2</div>
+                <h3>Sopralluogo</h3>
+                <p>Valutiamo lo stato dei luoghi e prendiamo le misure.</p>
+            </div>
+            <div class="process-card">
+                <div class="process-number">3</div>
+                <h3>Preventivo</h3>
+                <p>Ricevi un computo dettagliato, senza sorprese.</p>
+            </div>
+            <div class="process-card">
+                <div class="process-number">4</div>
+                <h3>Realizzazione</h3>
+                <p>Eseguiamo i lavori e ti consegniamo il risultato.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEZIONE I NOSTRI SERVIZI -->
+    <section id="servizi">
+        <h2 class="section-title">I Nostri Servizi</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Costruzioni & Ristrutturazioni</h3>
+                <p class="service-desc">Dal cantiere alla consegna chiavi in mano.</p>
+                <ul>
+                    <li>Nuove costruzioni</li>
+                    <li>Ristrutturazioni d'interni</li>
+                    <li>Manutenzioni</li>
+                    <li>Pronto intervento</li>
+                    <li>Porte e serramenti</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <h3>Immobiliare</h3>
+                <p class="service-desc">Valorizziamo gli immobili e li portiamo sul mercato.</p>
+                <ul>
+                    <li>Sviluppo immobiliare</li>
+                    <li>Vendita e valorizzazione</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <h3>Progettazione</h3>
+                <p class="service-desc">Progetti, misure e numeri chiari prima di iniziare.</p>
+                <ul>
+                    <li>Relazioni energetiche</li>
+                    <li>Progetti e permessi</li>
+                    <li>Rilievi dettagliati</li>
+                    <li>Computi metrici</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEZIONE BROCHURE (PDF) -->
+    <section id="brochure">
+        <h2 class="section-title">Brochure</h2>
+        <div class="brochure-grid">
+            
+            <div class="brochure-card">
+                <div class="brochure-header">Case in Bioedilizia</div>
+                <div class="brochure-body">
+                    <p>Scarica la brochure completa per scoprire i materiali ecologici, le soluzioni costruttive e il risparmio energetico delle nostre case in bioedilizia.</p>
+                    <a href="pdf/bioedilizia.pdf" download class="btn-download">Scarica PDF Bioedilizia</a>
+                </div>
+            </div>
+
+            <div class="brochure-card">
+                <div class="brochure-header">Tetti Verdi</div>
+                <div class="brochure-body">
+                    <p>Scarica la guida tecnica dedicata ai tetti verdi e alle coperture vegetate per l'isolamento termico e l'efficienza ecologica.</p>
+                    <a href="pdf/tetti-verdi.pdf" download class="btn-download">Scarica PDF Tetti Verdi</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- GALLERIA I NOSTRI LAVORI -->
+    <section id="lavori">
+        <h2 class="section-title">I Nostri Lavori</h2>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" alt="Lavoro 1">
+                <div class="gallery-overlay">
+                    <h3>Progetto 1</h3>
+                    <p>Bioedilizia e isolamento</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1531835551805-16d864c8d311?auto=format&fit=crop&w=600&q=80" alt="Lavoro 2">
+                <div class="gallery-overlay">
+                    <h3>Progetto 2</h3>
+                    <p>Copertura Verde Pensile</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Lavoro 3">
+                <div class="gallery-overlay">
+                    <h3>Progetto 3</h3>
+                    <p>Realizzazione sostenibile</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1592595896551-12b371d546d5?auto=format&fit=crop&w=600&q=80" alt="Lavoro 4">
+                <div class="gallery-overlay">
+                    <h3>Progetto 4</h3>
+                    <p>Tetto verde e giardino</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEZIONE PREVENTIVO -->
+    <section id="preventivo">
+        <h2 class="section-title">Richiedi un Preventivo</h2>
+        <div class="preventivo-box">
+            <form class="preventivo-form" action="https://formspree.io/f/xppdazzo" method="POST">
+                <div class="form-group">
+                    <label for="nome">Nome e Cognome *</label>
+                    <input type="text" id="nome" name="nome" required placeholder="Inserisci il tuo nome">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required placeholder="Inserisci la tua email">
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Telefono</label>
+                    <input type="tel" id="telefono" name="telefono" placeholder="Inserisci il numero di telefono">
+                </div>
+                <div class="form-group">
+                    <label for="servizio">Tipologia di Lavoro</label>
+                    <select id="servizio" name="servizio">
+                        <option value="costruzioni-ristrutturazioni">Costruzioni & Ristrutturazioni</option>
+                        <option value="immobiliare">Immobiliare</option>
+                        <option value="progettazione">Progettazione</option>
+                        <option value="altro">Altro</option>
+                    </select>
+                </div>
+                <div class="form-group full-width">
+                    <label for="messaggio">Dettagli della richiesta</label>
+                    <textarea id="messaggio" name="messaggio" rows="4" placeholder="Descrivi brevemente il progetto..."></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Invia Richiesta Preventivo</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- SEZIONE DOVE SIAMO & CONTATTI -->
+    <section id="contatti">
+        <h2 class="section-title">Dove Siamo & Contatti</h2>
+        <div class="contatti-grid">
+            <div class="contatti-card">
+                <h3>Sede Operativa</h3>
+                <p><strong>Home Renovation Srl</strong></p>
+                <p>Via Filippo Turati 111</p>
+                <p>20023 Cerro Maggiore (VA) – Italia</p>
+                <p style="margin-top: 1rem;"><strong>Telefono:</strong> <a href="tel:3332696560">333 2696560</a></p>
+            </div>
+
+            <div class="contatti-card">
+                <h3>Reparti & Email Aziendali</h3>
+                <ul>
+                    <li><strong>Segreteria:</strong><br><a href="mailto:segreteria@homerenovationsrl.it">segreteria@homerenovationsrl.it</a></li>
+                    <li><strong>Tecnico:</strong><br><a href="mailto:tecnico@homerenovationsrl.it">tecnico@homerenovationsrl.it</a></li>
+                    <li><strong>Amministrazione:</strong><br><a href="mailto:amministrazione@homerenovationsrl.it">amministrazione@homerenovationsrl.it</a></li>
+                    <li><strong>Ufficio Legale:</strong><br><a href="mailto:ufficio.legale@homerenovationsrl.it">ufficio.legale@homerenovationsrl.it</a></li>
+                    <li><strong>Contratti:</strong><br><a href="mailto:contratti@homerenovationsrl.it">contratti@homerenovationsrl.it</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Home Renovation S.r.l. — Tutti i diritti riservati</p>
+    </footer>
+
+</body>
+</html>
