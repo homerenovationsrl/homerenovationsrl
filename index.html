@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bioedilizia & Tetti Verdi | Progettazione Sostenibile</title>
+    <style>
+        :root {
+            --primary: #2d5a27;
+            --secondary: #4a7c59;
+            --accent: #8fb996;
+            --bg-light: #f4f7f4;
+            --text-dark: #2c3e50;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* HEADER & NAV */
+        header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+        }
+
+        /* SEZIONI GENERALI */
+        section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary);
+            margin: 0.5rem auto 0;
+        }
+
+        /* SEZIONE BROCHURE */
+        .brochure-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .brochure-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brochure-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .brochure-img {
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .brochure-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .brochure-content h3 {
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+        }
+
+        .brochure-content p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .btn-download {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 0.8rem 1.2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn-download:hover {
+            background-color: var(--secondary);
+        }
+
+        /* GALLERIA LAVORI */
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: var(--white);
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--secondary);
+            color: var(--white);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 250px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(45, 90, 39, 0.85);
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">BIO ARCHITETTURA</div>
+            <ul class="nav-links">
+                <li><a href="#brochure">Brochure</a></li>
+                <li><a href="#galleria">I Nostri Lavori</a></li>
+                <li><a href="#contatti">Contatti</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>Soluzioni Edili Sostenibili</h1>
+        <p>Progettazione e realizzazione di case in bioedilizia e tetti verdi a basso impatto ambientale.</p>
+    </div>
+
+    <!-- SEZIONE BROCHURE -->
+    <section id="brochure">
+        <h2 class="section-title">Le Nostre Brochure</h2>
+        <div class="brochure-grid">
+            
+            <!-- Brochure Bioedilizia -->
+            <div class="brochure-card">
+                <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=600&q=80" alt="Bioedilizia" class="brochure-img">
+                <div class="brochure-content">
+                    <h3>Case in Bioedilizia</h3>
+                    <p>Scarica la brochure informativa per scoprire i materiali ecologici, le tecniche costruttive e l'efficienza energetica delle nostre strutture in legno e pietra.</p>
+                    <a href="pdf/bioedilizia.pdf" download class="btn-download">Scarica Brochure (PDF)</a>
+                </div>
+            </div>
+
+            <!-- Brochure Tetti Verdi -->
+            <div class="brochure-card">
+                <img src="https://images.unsplash.com/photo-1590496793929-36417d3117de?auto=format&fit=crop&w=600&q=80" alt="Tetti Verdi" class="brochure-img">
+                <div class="brochure-content">
+                    <h3>Tetti e Coperture Verde</h3>
+                    <p>Consulta la guida tecnica sui sistemi di verde pensile: isolamento termico naturale, gestione delle acque piovane e miglioramento dell'aria.</p>
+                    <a href="pdf/tetti-verdi.pdf" download class="btn-download">Scarica Brochure (PDF)</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SEZIONE GALLERIA LAVORI -->
+    <section id="galleria">
+        <h2 class="section-title">I Nostri Lavori</h2>
+        
+        <!-- Filtri Galleria -->
+        <div class="gallery-filters">
+            <button class="filter-btn active" onclick="filterGallery('all')">Tutti</button>
+            <button class="filter-btn" onclick="filterGallery('bioedilizia')">Bioedilizia</button>
+            <button class="filter-btn" onclick="filterGallery('tetti-verdi')">Tetti Verdi</button>
+        </div>
+
+        <!-- Griglia Immagini Galleria -->
+        <div class="gallery-grid">
+            <!-- Foto 1 -->
+            <div class="gallery-item bioedilizia">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" alt="Casa Ecologica">
+                <div class="gallery-overlay">
+                    <h3>Villa in Legno Sostenibile</h3>
+                    <p>Bioedilizia - Realizzata nel 2024</p>
+                </div>
+            </div>
+
+            <!-- Foto 2 -->
+            <div class="gallery-item tetti-verdi">
+                <img src="https://images.unsplash.com/photo-1531835551805-16d864c8d311?auto=format&fit=crop&w=600&q=80" alt="Tetto Verde">
+                <div class="gallery-overlay">
+                    <h3>Copertura Verde Pensile</h3>
+                    <p>Tetti Verdi - Residenziale</p>
+                </div>
+            </div>
+
+            <!-- Foto 3 -->
+            <div class="gallery-item bioedilizia">
+                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Struttura Ecologica">
+                <div class="gallery-overlay">
+                    <h3>Struttura ad Alta Efficienza</h3>
+                    <p>Bioedilizia - Classe A4</p>
+                </div>
+            </div>
+
+            <!-- Foto 4 -->
+            <div class="gallery-item tetti-verdi">
+                <img src="https://images.unsplash.com/photo-1592595896551-12b371d546d5?auto=format&fit=crop&w=600&q=80" alt="Giardino Pensile">
+                <div class="gallery-overlay">
+                    <h3>Tetto Giardino Urbano</h3>
+                    <p>Tetti Verdi - Commerciale</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contatti">
+        <p>&copy; 2026 Studio Bioedilizia & Tetti Verdi — Tutti i diritti riservati</p>
+    </footer>
+
+    <!-- SCRIPT FILTRI GALLERIA -->
+    <script>
+        function filterGallery(category) {
+            const items = document.querySelectorAll('.gallery-item');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
